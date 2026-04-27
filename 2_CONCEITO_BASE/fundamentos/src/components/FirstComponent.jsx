@@ -1,10 +1,10 @@
-const FirtsComponent = () => {
+
+const FirtsComponent = ({ texto }) => {
     return (
         <div>
-            <h2>Meu primeiro componente!</h2>
+            <h2>{texto}</h2>
         </div>
     )
 }
 
-
-export default FirtsComponent
+export default FirtsComponent;
