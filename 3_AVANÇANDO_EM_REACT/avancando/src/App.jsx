@@ -11,7 +11,7 @@ function App() {
         <h1>Avançando em React</h1>
         {/* 1 - imagem em public */}
         <img src="../public/reactimg22.avif" alt="Alguma imagem" />
-
+        
         {/* 2 - imagem em assets */}
 
         <img src={noite} alt="Outra imagem" />
