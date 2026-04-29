@@ -3,7 +3,7 @@ import './App.css'
 import reactLogo from './assets/react.svg';
 
 //1 - useState
-import { useState } from 'react';
+import { Children, useState } from 'react';
 
 // 2 - imagem assets
 import noite from './assets/reactimg2.png';
@@ -24,7 +24,6 @@ import ShowUserName from '../components/ShowUserName';
 import CarDetails from '../components/CarDetails';
 
 //8 - renderização de listas com componentes
-
 const cars = [
     { id: 1, brand: "Ferrari", color: "Amarelo", km: 0 },
     { id: 2, brand: "KIA", color: "Branco", km: 200000 },
@@ -34,9 +33,32 @@ const cars = [
 // 9 - fragments
 import Fragment from '../components/Fragment';
 
+// 10 - children
+import Container from '../components/Container';
+
+//11 - funcao em prop
+import ExecuteFunction from '../components/ExecuteFunction';
+
+//12 - state lift
+import Message from '../components/Message';
+import ChangeMessage from '../components/ChangeMessage';
+
 
 
 function App() {
+  
+  //11 - funcao em prop
+  function showMessage() {
+    console.log("Evento do componente pai")
+  }
+
+  //12 - state lift
+  const [message, setMessage] = useState("")
+
+  const handleMessage = (msg) => {
+      setMessage(msg);
+  };
+
   return (
       <div className='App' style={{paddingBottom: "500px"}}>
         <h1>Avançando em React</h1>
@@ -74,9 +96,20 @@ function App() {
           />
         )}
 
-        {/* 12 - fragments */}
+        {/* 9 - fragments */}
         <Fragment/>
 
+        {/* 10- children */}
+        <Container>
+          <p>Alguma coisa</p>
+        </Container>
+
+        {/* 11- funcao em prop */}
+        <ExecuteFunction myFunction={showMessage}/>
+
+        {/* 12 - state lift */}
+        <Message msg={message} />
+        <ChangeMessage handleMessage={handleMessage}/>
       </div>
   );
 }
